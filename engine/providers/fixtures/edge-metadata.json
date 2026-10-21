@@ -1,0 +1,6 @@
+[
+  { "Type": "WordBoundary", "Data": { "Offset": 1000000, "Duration": 3000000, "text": { "Text": "Hello" } } },
+  { "Type": "SentenceBoundary", "Data": { "Offset": 1000000, "Duration": 14000000, "text": { "Text": "Hello brave world" } } },
+  { "Type": "WordBoundary", "Data": { "Offset": 5000000, "Duration": 4000000, "text": { "Text": "brave" } } },
+  { "Type": "WordBoundary", "Data": { "Offset": 10000000, "Duration": 5000000, "text": { "Text": "world" } } }
+]

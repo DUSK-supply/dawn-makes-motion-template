@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChannelProfile",
+  "type": "object",
+  "required": ["name", "handle", "niche", "tone", "format", "publishing"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "handle": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "niche": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "tone": { "type": "string" },
+    "format": {
+      "type": "object",
+      "required": ["longform_minutes", "shorts_enabled"],
+      "properties": {
+        "longform_minutes": { "type": "string", "pattern": "^[0-9]+(-[0-9]+)?$" },
+        "shorts_enabled": { "type": "boolean" }
+      }
+    },
+    "publishing": {
+      "type": "object",
+      "required": ["longform_per_week", "shorts_per_week"],
+      "properties": {
+        "longform_per_week": { "type": "integer", "minimum": 0 },
+        "shorts_per_week": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "dawn-makes-motion",
+  "displayName": "Dawn Makes Motion by DUSK Supply",
+  "description": "Local-first Claude Code plugin and repo template for researching, planning, scripting, rendering, clipping and packaging faceless YouTube channels.",
+  "version": "0.3.0",
+  "author": {
+    "name": "DUSK Supply",
+    "email": "hello@dusk.supply"
+  },
+  "license": "MIT",
+  "keywords": ["youtube", "faceless", "remotion", "ffmpeg", "higgsfield", "content-engine", "local-first"],
+  "commands": "./.claude/commands/",
+  "agents": [
+    "./.claude/agents/strategist.md",
+    "./.claude/agents/researcher.md",
+    "./.claude/agents/producer.md",
+    "./.claude/agents/editor.md",
+    "./.claude/agents/compliance.md"
+  ],
+  "skills": [
+    "./.claude/skills/niche-research",
+    "./.claude/skills/brand-identity",
+    "./.claude/skills/90-day-planning",
+    "./.claude/skills/scriptwriting",
+    "./.claude/skills/packaging",
+    "./.claude/skills/shorts-clipping",
+    "./.claude/skills/policy-and-monetisation-qa"
+  ],
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}\"/.claude/hooks/setup-check.sh", "timeout": 15 }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}\"/.claude/hooks/pre-script-check.sh" },
+          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}\"/.claude/hooks/pre-publish-check.sh", "timeout": 120 }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}\"/.claude/hooks/pre-render-check.sh", "timeout": 60 }
+        ]
+      }
+    ]
+  },
+  "userConfig": {
+    "template_repo": {
+      "type": "string",
+      "title": "Engine template repository",
+      "description": "Git URL of the dawn-makes-motion template that /setup-engine clones into your project.",
+      "default": "https://github.com/DUSK-supply/dawn-makes-motion-template.git"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "slug": "sample-episode",
+  "title": "Sample Episode",
+  "channel": "example-channel",
+  "format": "longform",
+  "voiceoverPath": "channels/example-channel/assets/audio/sample-episode.wav",
+  "musicPath": "channels/example-channel/assets/music/bed.mp3",
+  "outputPath": "output/example-channel-sample-episode.mp4",
+  "scenes": [
+    {
+      "id": "scene-001",
+      "durationFrames": 180,
+      "text": "The opening line of the first scene"
+    }
+  ]
+}

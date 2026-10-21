@@ -1,0 +1,65 @@
+{
+  "name": "faceless-youtube-engine",
+  "version": "0.3.0",
+  "description": "Local-first Claude Code / Cowork plugin and repo template for operating faceless YouTube channels.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "DUSK Supply <hello@dusk.supply>",
+  "keywords": [
+    "youtube",
+    "faceless",
+    "remotion",
+    "ffmpeg",
+    "local-first"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "tsx --test 'engine/scripts/*.test.ts' 'engine/captions/*.test.ts' 'engine/providers/**/*.test.ts'",
+    "remotion:studio": "remotion studio engine/remotion/index.ts",
+    "remotion:render": "remotion render engine/remotion/index.ts EpisodeTemplate output/sample.mp4",
+    "validate:episode": "tsx engine/scripts/validate-manifest.ts engine/schemas/episode-manifest.schema.json engine/schemas/fixtures/episode.sample.json",
+    "validate": "npm run validate:episode && npm test",
+    "validate:plugin": "claude plugin validate .",
+    "typecheck": "tsc --noEmit",
+    "lint": "npm run typecheck && for f in scripts/*.sh .claude/hooks/*.sh .claude/hooks/lib/*.sh engine/ffmpeg/*.sh; do bash -n \"$f\" || exit 1; done",
+    "audit": "bash scripts/audit-repo.sh",
+    "config": "tsx engine/scripts/read-channel-config.ts",
+    "validate:file": "tsx engine/scripts/validate-manifest.ts",
+    "check:script": "bash .claude/hooks/pre-script-check.sh",
+    "check:render": "bash .claude/hooks/pre-render-check.sh",
+    "check:publish": "bash .claude/hooks/pre-publish-check.sh",
+    "check:setup": "bash .claude/hooks/setup-check.sh"
+  },
+  "dependencies": {
+    "@remotion/captions": "4.0.537",
+    "@remotion/cli": "4.0.537",
+    "@remotion/install-whisper-cpp": "4.0.537",
+    "@remotion/player": "4.0.537",
+    "@remotion/renderer": "4.0.537",
+    "msedge-tts": "2.1.0",
+    "openai": "7.41.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "4.0.537"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "ajv": "^8.20.0",
+    "ajv-cli": "^5.0.0",
+    "ajv-formats": "^3.0.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "yaml": "^2.9.1"
+  },
+  "allowScripts": {
+    "ajv-cmd@0.17.1": true,
+    "esbuild@0.28.2": true,
+    "esbuild@0.28.1": true,
+    "fsevents@2.3.3": true
+  }
+}

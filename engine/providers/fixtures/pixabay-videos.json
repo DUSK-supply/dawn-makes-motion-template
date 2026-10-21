@@ -1,0 +1,20 @@
+{
+  "hits": [
+    {
+      "id": 2001, "pageURL": "https://pixabay.com/videos/forest-2001/", "duration": 20, "user": "leaf", "user_id": 555,
+      "videos": {
+        "large": { "url": "https://cdn.example/2001-large.mp4", "width": 3840, "height": 2160, "size": 90000 },
+        "medium": { "url": "https://cdn.example/2001-medium.mp4", "width": 1920, "height": 1080, "size": 40000 },
+        "small": { "url": "https://cdn.example/2001-small.mp4", "width": 1280, "height": 720, "size": 20000 },
+        "tiny": { "url": "", "width": 640, "height": 360, "size": 0 }
+      }
+    },
+    {
+      "id": 2002, "pageURL": "https://pixabay.com/videos/phone-2002/", "duration": 8, "user": "vert", "user_id": 777,
+      "videos": {
+        "large": { "url": "https://cdn.example/2002-large.mp4", "width": 2160, "height": 3840, "size": 80000 },
+        "medium": { "url": "https://cdn.example/2002-medium.mp4", "width": 1080, "height": 1920, "size": 30000 }
+      }
+    }
+  ]
+}

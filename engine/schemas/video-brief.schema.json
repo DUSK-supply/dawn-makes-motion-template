@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VideoBrief",
+  "type": "object",
+  "required": ["slug", "channel", "title", "format", "audience", "promise", "sources"],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "channel": { "type": "string" },
+    "title": { "type": "string", "minLength": 1 },
+    "format": { "type": "string", "enum": ["longform", "short"] },
+    "audience": { "type": "string" },
+    "promise": { "type": "string" },
+    "targetMinutes": { "type": "number", "minimum": 0 },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url"],
+        "properties": { "url": { "type": "string", "format": "uri" }, "note": { "type": "string" } }
+      }
+    }
+  }
+}

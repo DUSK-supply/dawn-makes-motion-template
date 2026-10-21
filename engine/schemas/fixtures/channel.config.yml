@@ -1,0 +1,12 @@
+name: Example Channel
+handle: example-channel
+niche:
+  - example topic one
+  - example topic two
+tone: practical
+format:
+  longform_minutes: 15-30
+  shorts_enabled: true
+publishing:
+  longform_per_week: 1
+  shorts_per_week: 3

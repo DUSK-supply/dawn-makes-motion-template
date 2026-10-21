@@ -1,0 +1,23 @@
+# Local-only toolchain: Node + FFmpeg (+ Chromium libs Remotion needs). No paid services.
+services:
+  engine:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM node:24-bookworm-slim
+        RUN apt-get update && apt-get install -y --no-install-recommends \
+              ffmpeg make libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 libgbm1 \
+              libasound2 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 \
+              libpango-1.0-0 libcairo2 libcups2 \
+            && rm -rf /var/lib/apt/lists/*
+        WORKDIR /app
+    working_dir: /app
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules # keep container deps separate from the host's
+    ports:
+      - "3000:3000" # Remotion Studio
+    command: sh -c "npm ci && npm run validate"
+
+volumes:
+  node_modules:

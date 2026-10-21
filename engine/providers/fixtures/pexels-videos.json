@@ -1,0 +1,29 @@
+{
+  "videos": [
+    {
+      "id": 1001, "url": "https://www.pexels.com/video/ocean-waves-1001/", "duration": 12,
+      "user": { "name": "Ann | Smith", "url": "https://www.pexels.com/@ann" },
+      "video_files": [
+        { "link": "https://cdn.example/1001-uhd.mp4", "width": 3840, "height": 2160, "file_type": "video/mp4" },
+        { "link": "https://cdn.example/1001-hd.mp4", "width": 1920, "height": 1080, "file_type": "video/mp4" },
+        { "link": "https://cdn.example/1001-fhd-wide.mp4", "width": 2560, "height": 1440, "file_type": "video/mp4" },
+        { "link": "https://cdn.example/1001-sd.mp4", "width": 960, "height": 540, "file_type": "video/mp4" },
+        { "link": "https://cdn.example/1001.m3u8", "width": 1920, "height": 1080, "file_type": "application/x-mpegURL" }
+      ]
+    },
+    {
+      "id": 1002, "url": "https://www.pexels.com/video/low-res-1002/", "duration": 5,
+      "user": { "name": "Bo", "url": "https://www.pexels.com/@bo" },
+      "video_files": [
+        { "link": "https://cdn.example/1002-sd.mp4", "width": 1280, "height": 720, "file_type": "video/mp4" }
+      ]
+    },
+    {
+      "id": 1003, "url": "https://www.pexels.com/video/short-1003/", "duration": 3,
+      "user": { "name": "Cy", "url": "https://www.pexels.com/@cy" },
+      "video_files": [
+        { "link": "https://cdn.example/1003-hd.mp4", "width": 1920, "height": 1080, "file_type": "video/mp4" }
+      ]
+    }
+  ]
+}

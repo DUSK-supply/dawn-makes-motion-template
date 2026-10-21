@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EpisodeManifest",
+  "type": "object",
+  "required": ["slug", "title", "channel", "format", "scenes"],
+  "properties": {
+    "slug": { "type": "string" },
+    "title": { "type": "string" },
+    "channel": { "type": "string" },
+    "format": { "type": "string", "enum": ["longform", "short"] },
+    "voiceoverPath": { "type": "string" },
+    "captionsPath": { "type": "string" },
+    "musicPath": { "type": "string" },
+    "outputPath": { "type": "string" },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "durationFrames"],
+        "properties": {
+          "id": { "type": "string" },
+          "durationFrames": { "type": "integer", "minimum": 1 },
+          "text": { "type": "string" },
+          "imagePath": { "type": "string" },
+          "videoPath": { "type": "string" },
+          "type": { "type": "string", "enum": ["screen-recording", "animation", "diagram", "generated", "stock-licensed"] },
+          "licenceRef": { "type": "string" },
+          "stockClipId": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
